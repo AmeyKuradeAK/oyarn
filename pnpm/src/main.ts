@@ -136,7 +136,7 @@ export async function main (inputArgv: string[]): Promise<void> {
     return
   }
   if (cmd == null && cliOptions.version) {
-    console.log(packageManager.version)
+    console.log(`${packageManager.version} | oyarn VICTORY 🚀`)
     return
   }
 
