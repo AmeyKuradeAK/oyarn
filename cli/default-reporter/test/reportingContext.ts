@@ -18,7 +18,7 @@ test('print context and import method info', async () => {
 
   contextLogger.debug({
     currentLockfileExists: false,
-    storeDir: '~/.pnpm-store/v3',
+    storeDir: '~/.oyarn-store/v3',
     virtualStoreDir: 'node_modules/.pnpm',
   })
   packageImportMethodLogger.debug({
@@ -30,7 +30,7 @@ test('print context and import method info', async () => {
   const output = await firstValueFrom(output$)
   expect(output).toBe(`\
 Packages are hard linked from the content-addressable store to the virtual store.
-  Content-addressable store is at: ~/.pnpm-store/v3
+  Content-addressable store is at: ~/.oyarn-store/v3
   Virtual store is at:             node_modules/.pnpm`)
 })
 
@@ -44,7 +44,7 @@ test('do not print info if not fresh install', async () => {
 
   contextLogger.debug({
     currentLockfileExists: true,
-    storeDir: '~/.pnpm-store/v3',
+    storeDir: '~/.oyarn-store/v3',
     virtualStoreDir: 'node_modules/.pnpm',
   })
   packageImportMethodLogger.debug({
@@ -69,7 +69,7 @@ test('do not print info if dlx is the executed command', async () => {
 
   contextLogger.debug({
     currentLockfileExists: false,
-    storeDir: '~/.pnpm-store/v3',
+    storeDir: '~/.oyarn-store/v3',
     virtualStoreDir: 'node_modules/.pnpm',
   })
   packageImportMethodLogger.debug({

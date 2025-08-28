@@ -159,8 +159,8 @@ test('saveCatalogName does not work with local dependencies', async () => {
 
   expect(fs.existsSync('pnpm-workspace.yaml')).toBe(false)
 
-  expect(readYamlFile('pnpm-lock.yaml')).not.toHaveProperty(['catalog'])
-  expect(readYamlFile('pnpm-lock.yaml')).not.toHaveProperty(['catalogs'])
+  expect(readYamlFile('oyarn.lock')).not.toHaveProperty(['catalog'])
+  expect(readYamlFile('oyarn.lock')).not.toHaveProperty(['catalogs'])
 })
 
 test('saveCatalogName with non-default name', async () => {

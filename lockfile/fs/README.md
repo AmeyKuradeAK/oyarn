@@ -1,8 +1,8 @@
 # @pnpm/lockfile.fs
 
-> Read/write pnpm-lock.yaml files
+> Read/write oyarn.lock files
 
-Reads and writes the wanted (`pnpm-lock.yaml`) and current (`node_modules/.pnpm-lock.yaml`) lockfile files of pnpm.
+Reads and writes the wanted (`oyarn.lock`) and current (`node_modules/.oyarn.lock`) lockfile files of pnpm.
 Lockfile files are the state files of the `node_modules` installed via pnpm. They are like
 the `package-lock.json` of npm or the `yarn.lock` of Yarn.
 
@@ -16,7 +16,7 @@ pnpm add @pnpm/lockfile.fs
 
 ### `readWantedLockfile(pkgPath, opts) => Promise<Lockfile>`
 
-Reads the `pnpm-lock.yaml` file from the root of the package.
+Reads the `oyarn.lock` file from the root of the package.
 
 #### Arguments
 
@@ -30,7 +30,7 @@ Reads the lockfile file from `<virtualStoreDir>/lock.yaml`.
 
 ### `existsNonEmptyWantedLockfile(pkgPath) => Promise<Boolean>`
 
-Returns `true` if a `pnpm-lock.yaml` exists in the root of the package.
+Returns `true` if a `oyarn.lock` exists in the root of the package.
 
 ### `writeLockfiles(opts) => Promise<void>`
 

@@ -1,7 +1,7 @@
 {
   "name": "@pnpm/pkg-manager.direct-dep-linker",
   "version": "1000.0.10",
-  "description": "Fast installation using only pnpm-lock.yaml",
+  "description": "Fast installation using only oyarn.lock",
   "keywords": [
     "pnpm",
     "pnpm10"

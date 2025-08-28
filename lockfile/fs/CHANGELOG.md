@@ -685,7 +685,7 @@
 
 ### Patch Changes
 
-- 0373af22e: Always correctly update the "time" field in "pnpm-lock.yaml".
+- 0373af22e: Always correctly update the "time" field in "oyarn.lock".
 
 ## 5.3.3
 
@@ -735,7 +735,7 @@
 
 ### Patch Changes
 
-- ab684d77e: Never add an empty patchedDependencies field to `pnpm-lock.yaml`.
+- ab684d77e: Never add an empty patchedDependencies field to `oyarn.lock`.
 
 ## 5.1.3
 

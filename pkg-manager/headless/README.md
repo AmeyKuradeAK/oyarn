@@ -1,6 +1,6 @@
 # @pnpm/headless
 
-> Fast installation using only pnpm-lock.yaml
+> Fast installation using only oyarn.lock
 
 ## Installation
 

@@ -287,7 +287,7 @@
 ### Patch Changes
 
 - 32dadef: Installation should not exit with an error if `strictPeerDependencies` is `true` but all issues are ignored by `peerDependencyRules` [#9505](https://github.com/pnpm/pnpm/pull/9505).
-- 509948d: Fix a regression (in v10.9.0) causing the `--lockfile-only` flag on `pnpm update` to produce a different `pnpm-lock.yaml` than an update without the flag.
+- 509948d: Fix a regression (in v10.9.0) causing the `--lockfile-only` flag on `pnpm update` to produce a different `oyarn.lock` than an update without the flag.
 - Updated dependencies [509948d]
   - @pnpm/resolve-dependencies@1007.0.2
   - @pnpm/package-requester@1004.0.2
@@ -655,7 +655,7 @@
 
 ### Patch Changes
 
-- e4eeafd: Fix a bug causing entries in the `catalogs` section of the `pnpm-lock.yaml` file to be removed when `dedupe-peer-dependents=false` on a filtered install. [#9112](https://github.com/pnpm/pnpm/issues/9112)
+- e4eeafd: Fix a bug causing entries in the `catalogs` section of the `oyarn.lock` file to be removed when `dedupe-peer-dependents=false` on a filtered install. [#9112](https://github.com/pnpm/pnpm/issues/9112)
 - Updated dependencies [daf47e9]
 - Updated dependencies [daf47e9]
 - Updated dependencies [a5e4965]
@@ -703,7 +703,7 @@
 
 ### Patch Changes
 
-- 41dada4: Fix a bug causing catalog snapshots to be removed from the `pnpm-lock.yaml` file when using `--fix-lockfile` and `--filter`. [#8639](https://github.com/pnpm/pnpm/issues/8639)
+- 41dada4: Fix a bug causing catalog snapshots to be removed from the `oyarn.lock` file when using `--fix-lockfile` and `--filter`. [#8639](https://github.com/pnpm/pnpm/issues/8639)
 - 2d16f7a: Fix a bug causing catalog protocol dependencies to not re-resolve on a filtered install [#8638](https://github.com/pnpm/pnpm/issues/8638).
 - Updated dependencies [8fcc221]
   - @pnpm/types@1000.2.0
@@ -1038,7 +1038,7 @@
 
   Related PR: [#8653](https://github.com/pnpm/pnpm/pull/8653).
 
-- 501c152: Changed the hash stored in the `packageExtensionsChecksum` field of `pnpm-lock.yaml` to SHA256.
+- 501c152: Changed the hash stored in the `packageExtensionsChecksum` field of `oyarn.lock` to SHA256.
 - d433cb9: Some registries allow identical content to be published under different package names or versions. To accommodate this, index files in the store are now stored using both the content hash and package identifier.
 
   This approach ensures that we can:
@@ -3187,7 +3187,7 @@
 
 ### Patch Changes
 
-- 2a2032810: Don't write the `pnpm-lock.yaml` file if it has no changes and `pnpm install --frozen-lockfile` was executed [#6158](https://github.com/pnpm/pnpm/issues/6158).
+- 2a2032810: Don't write the `oyarn.lock` file if it has no changes and `pnpm install --frozen-lockfile` was executed [#6158](https://github.com/pnpm/pnpm/issues/6158).
 - Updated dependencies [1d105e7fc]
 - Updated dependencies [c92936158]
 - Updated dependencies [2a2032810]
@@ -3559,7 +3559,7 @@
 
 ### Minor Changes
 
-- 3ebce5db7: Added support for `pnpm-lock.yaml` format v6. This new format will be the new lockfile format in pnpm v8. To use the new lockfile format, use the `use-lockfile-v6=true` setting in `.npmrc`. Or run `pnpm install --use-lockfile-v6` [#5810](https://github.com/pnpm/pnpm/pull/5810).
+- 3ebce5db7: Added support for `oyarn.lock` format v6. This new format will be the new lockfile format in pnpm v8. To use the new lockfile format, use the `use-lockfile-v6=true` setting in `.npmrc`. Or run `pnpm install --use-lockfile-v6` [#5810](https://github.com/pnpm/pnpm/pull/5810).
 
 ### Patch Changes
 
@@ -4441,7 +4441,7 @@
 
 ### Minor Changes
 
-- 0569f1022: When `saveLockfile` is set to `false`, no changes to `pnpm-lock.yaml` are written to the filesystem.
+- 0569f1022: When `saveLockfile` is set to `false`, no changes to `oyarn.lock` are written to the filesystem.
 
 ### Patch Changes
 
@@ -4490,7 +4490,7 @@
 ### Patch Changes
 
 - 0ee3dfbe0: Don't print warnings about file verifications. Just print info messages instead.
-- 406656f80: When `lockfile-include-tarball-url` is set to `true`, every entry in `pnpm-lock.yaml` will contain the full URL to the package's tarball [#5054](https://github.com/pnpm/pnpm/pull/5054).
+- 406656f80: When `lockfile-include-tarball-url` is set to `true`, every entry in `oyarn.lock` will contain the full URL to the package's tarball [#5054](https://github.com/pnpm/pnpm/pull/5054).
 - Updated dependencies [28f000509]
 - Updated dependencies [406656f80]
   - @pnpm/build-modules@9.3.0
@@ -7019,7 +7019,7 @@
 
 - ddd98dd74: The lockfile should be correctly updated when a direct dependency that has peer dependencies has a new version specifier in `package.json`.
 
-  For instance, `jest@26` has `cascade@2` in its peer dependencies. So `pnpm install` will scope Jest to some version of cascade. This is how it will look like in `pnpm-lock.yaml`:
+  For instance, `jest@26` has `cascade@2` in its peer dependencies. So `pnpm install` will scope Jest to some version of cascade. This is how it will look like in `oyarn.lock`:
 
   ```yaml
   dependencies:

@@ -1,7 +1,7 @@
 {
   "name": "@pnpm/lockfile.utils",
   "version": "1003.0.0",
-  "description": "Utils for dealing with pnpm-lock.yaml",
+  "description": "Utils for dealing with oyarn.lock",
   "keywords": [
     "pnpm",
     "pnpm10",

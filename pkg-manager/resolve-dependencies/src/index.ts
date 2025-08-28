@@ -419,7 +419,7 @@ function addDirectDependenciesToLockfile (
 function alignDependencyTypes (manifest: ProjectManifest, projectSnapshot: ProjectSnapshot): void {
   const depTypesOfAliases = getAliasToDependencyTypeMap(manifest)
 
-  // Aligning the dependency types in pnpm-lock.yaml
+  // Aligning the dependency types in oyarn.lock
   for (const depType of DEPENDENCIES_FIELDS) {
     if (projectSnapshot[depType] == null) continue
     for (const [alias, ref] of Object.entries(projectSnapshot[depType] ?? {})) {

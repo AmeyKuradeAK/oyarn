@@ -20,5 +20,5 @@ test('a package with a huge amount of circular dependencies and many peer depend
     }, { registries })
   )
 
-  expect(fs.existsSync('pnpm-lock.yaml')).toBeTruthy()
+  expect(fs.existsSync('oyarn.lock')).toBeTruthy()
 })

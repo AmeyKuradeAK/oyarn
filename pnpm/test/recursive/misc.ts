@@ -231,7 +231,7 @@ test('recursive installation of packages in workspace ignores hooks in packages'
 
   await execPnpm(['install'])
 
-  const lockfile = readYamlFile<LockfileFile>('pnpm-lock.yaml')
+  const lockfile = readYamlFile<LockfileFile>('oyarn.lock')
   const depPaths = Object.keys(lockfile.snapshots ?? {})
   expect(depPaths).not.toContain('@pnpm.e2e/dep-of-pkg-with-1-dep@100.1.0')
   expect(depPaths).toContain('is-number@1.0.0')

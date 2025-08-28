@@ -1270,7 +1270,7 @@ async function resolveDependency (
     ? Boolean(ctx.currentLockfile.packages?.[currentPkg.depPath])
     : undefined
   const depIsLinked = Boolean(
-    // if package is not in `node_modules/.pnpm-lock.yaml`
+    // if package is not in `node_modules/.oyarn.lock`
     // we can safely assume that it doesn't exist in `node_modules`
     currentLockfileContainsTheDep &&
     currentPkg.depPath &&

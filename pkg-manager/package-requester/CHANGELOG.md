@@ -106,7 +106,7 @@
 
 ### Patch Changes
 
-- 509948d: Fix a regression (in v10.9.0) causing the `--lockfile-only` flag on `pnpm update` to produce a different `pnpm-lock.yaml` than an update without the flag.
+- 509948d: Fix a regression (in v10.9.0) causing the `--lockfile-only` flag on `pnpm update` to produce a different `oyarn.lock` than an update without the flag.
 - Updated dependencies [509948d]
   - @pnpm/store-controller-types@1003.0.2
   - @pnpm/store.cafs@1000.0.13

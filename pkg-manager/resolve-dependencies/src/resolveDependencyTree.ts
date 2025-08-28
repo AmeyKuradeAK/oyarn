@@ -251,7 +251,7 @@ export async function resolveDependencyTree<T> (
         const userSpecifiedBareSpecifier = `catalog:${saveCatalogName === 'default' ? '' : saveCatalogName}`
 
         // Attach metadata about how this new catalog dependency should be
-        // resolved so the pnpm-lock.yaml file's catalogs section can be updated
+        // resolved so the oyarn.lock file's catalogs section can be updated
         // to reflect this newly added entry.
         directDep.catalogLookup = {
           catalogName: saveCatalogName,

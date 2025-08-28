@@ -108,7 +108,7 @@ test('parallel dlx calls of the same package', async () => {
   ).toStrictEqual([
     'node_modules',
     'package.json',
-    'pnpm-lock.yaml',
+    'oyarn.lock',
   ])
   expect(
     path.dirname(fs.realpathSync(path.resolve('cache', 'dlx', createCacheKey('shx@0.3.4'), 'pkg')))
@@ -128,7 +128,7 @@ test('parallel dlx calls of the same package', async () => {
   ).toStrictEqual([
     'node_modules',
     'package.json',
-    'pnpm-lock.yaml',
+    'oyarn.lock',
   ])
   expect(
     path.dirname(fs.realpathSync(path.resolve('cache', 'dlx', createCacheKey('shx@0.3.4'), 'pkg')))
@@ -150,7 +150,7 @@ test('parallel dlx calls of the same package', async () => {
   ).toStrictEqual([
     'node_modules',
     'package.json',
-    'pnpm-lock.yaml',
+    'oyarn.lock',
   ])
   expect(
     path.dirname(fs.realpathSync(path.resolve('cache', 'dlx', createCacheKey('shx@0.3.4'), 'pkg')))

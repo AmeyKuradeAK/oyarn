@@ -1,6 +1,6 @@
 # @pnpm/lockfile.utils
 
-> Utils for dealing with pnpm-lock.yaml
+> Utils for dealing with oyarn.lock
 
 ## Install
 

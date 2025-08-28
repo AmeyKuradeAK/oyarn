@@ -302,8 +302,8 @@ test('optional subdependency is skipped', async () => {
 
   // recreate the lockfile with optional dependencies present
 
-  expect(fs.existsSync('pnpm-lock.yaml')).toBeTruthy()
-  rimraf('pnpm-lock.yaml')
+  expect(fs.existsSync('oyarn.lock')).toBeTruthy()
+  rimraf('oyarn.lock')
 
   await mutateModulesInSingleProject({
     manifest,

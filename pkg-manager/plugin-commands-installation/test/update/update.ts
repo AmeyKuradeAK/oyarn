@@ -187,7 +187,7 @@ describe('update by package name', () => {
   })
 })
 
-test('update --no-save should not update package.json and pnpm-lock.yaml', async () => {
+test('update --no-save should not update package.json and oyarn.lock', async () => {
   await addDistTag({ package: '@pnpm.e2e/peer-a', version: '1.0.0', distTag: 'latest' })
 
   const project = prepare({

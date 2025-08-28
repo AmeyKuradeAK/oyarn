@@ -54,7 +54,7 @@ export async function readLockfiles (
     lockfileHadConflicts: boolean
   }> {
   const wantedLockfileVersion = LOCKFILE_VERSION
-  // ignore `pnpm-lock.yaml` on CI servers
+  // ignore `oyarn.lock` on CI servers
   // a latest pnpm should not break all the builds
   const lockfileOpts = {
     ignoreIncompatible: opts.force || opts.ci === true,

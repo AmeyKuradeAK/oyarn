@@ -735,7 +735,7 @@
 
 ### Patch Changes
 
-- 7a16da9f4: `pnpm audit` should work even if there are no `package.json` file, just a `pnpm-lock.yaml` file.
+- 7a16da9f4: `pnpm audit` should work even if there are no `package.json` file, just a `oyarn.lock` file.
 
 ## 7.0.0
 

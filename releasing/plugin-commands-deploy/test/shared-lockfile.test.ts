@@ -103,7 +103,7 @@ test('deploy with a shared lockfile after full install', async () => {
     lockfileDir: process.cwd(),
     workspaceDir: process.cwd(),
   })
-  expect(fs.existsSync('pnpm-lock.yaml')).toBeTruthy()
+  expect(fs.existsSync('oyarn.lock')).toBeTruthy()
 
   const expectedDeployManifest: ProjectManifest = {
     name: 'project-1',
@@ -145,7 +145,7 @@ test('deploy with a shared lockfile after full install', async () => {
     project.hasNot('project-4')
     project.hasNot('project-5')
     expect(readPackageJson('deploy')).toStrictEqual(expectedDeployManifest)
-    expect(fs.existsSync('deploy/pnpm-lock.yaml'))
+    expect(fs.existsSync('deploy/oyarn.lock'))
     expect(fs.existsSync('deploy/index.js')).toBeTruthy()
     expect(fs.existsSync('deploy/test.js')).toBeFalsy()
     expect(fs.existsSync('deploy/node_modules/.modules.yaml')).toBeTruthy()
@@ -213,7 +213,7 @@ test('deploy with a shared lockfile after full install', async () => {
     project.hasNot('project-4')
     project.hasNot('project-5')
     expect(readPackageJson('deploy')).toStrictEqual(expectedDeployManifest)
-    expect(fs.existsSync('deploy/pnpm-lock.yaml'))
+    expect(fs.existsSync('deploy/oyarn.lock'))
     expect(fs.existsSync('deploy/index.js')).toBeTruthy()
     expect(fs.existsSync('deploy/test.js')).toBeFalsy()
     expect(fs.existsSync('deploy/node_modules/.modules.yaml')).toBeTruthy()
@@ -316,7 +316,7 @@ test('the deploy manifest should inherit some fields from the pnpm object from t
     lockfileDir: process.cwd(),
     workspaceDir: process.cwd(),
   })
-  expect(fs.existsSync('pnpm-lock.yaml')).toBeTruthy()
+  expect(fs.existsSync('oyarn.lock')).toBeTruthy()
 
   await deploy.handler({
     ...DEFAULT_OPTS,
@@ -410,7 +410,7 @@ test('deploy with a shared lockfile and --prod filter should not fail even if de
     lockfileDir: process.cwd(),
     workspaceDir: process.cwd(),
   })
-  expect(fs.existsSync('pnpm-lock.yaml')).toBeTruthy()
+  expect(fs.existsSync('oyarn.lock')).toBeTruthy()
 
   fs.rmSync('dev-0', { recursive: true })
   fs.rmSync('dev-1', { recursive: true })
@@ -513,7 +513,7 @@ test('deploy with a shared lockfile should correctly handle workspace dependenci
     lockfileDir: process.cwd(),
     workspaceDir: process.cwd(),
   })
-  expect(fs.existsSync('pnpm-lock.yaml')).toBeTruthy()
+  expect(fs.existsSync('oyarn.lock')).toBeTruthy()
 
   await deploy.handler({
     ...DEFAULT_OPTS,
@@ -591,7 +591,7 @@ test('deploy with a shared lockfile should correctly handle package that depends
     lockfileDir: process.cwd(),
     workspaceDir: process.cwd(),
   })
-  expect(fs.existsSync('pnpm-lock.yaml')).toBeTruthy()
+  expect(fs.existsSync('oyarn.lock')).toBeTruthy()
 
   await deploy.handler({
     ...DEFAULT_OPTS,
@@ -710,7 +710,7 @@ test('deploy with a shared lockfile should correctly handle packageExtensions', 
     lockfileDir: process.cwd(),
     workspaceDir: process.cwd(),
   })
-  expect(fs.existsSync('pnpm-lock.yaml')).toBeTruthy()
+  expect(fs.existsSync('oyarn.lock')).toBeTruthy()
 
   await deploy.handler({
     ...DEFAULT_OPTS,
@@ -824,7 +824,7 @@ test('deploy with a shared lockfile should correctly handle patchedDependencies'
     lockfileDir: process.cwd(),
     workspaceDir: process.cwd(),
   })
-  expect(fs.existsSync('pnpm-lock.yaml')).toBeTruthy()
+  expect(fs.existsSync('oyarn.lock')).toBeTruthy()
 
   await deploy.handler({
     ...DEFAULT_OPTS,
@@ -1112,7 +1112,7 @@ test('deploy with a shared lockfile should keep files created by lifecycle scrip
     lockfileDir: process.cwd(),
     workspaceDir: process.cwd(),
   })
-  expect(fs.existsSync('pnpm-lock.yaml')).toBeTruthy()
+  expect(fs.existsSync('oyarn.lock')).toBeTruthy()
   expect(fs.existsSync('project-0/node_modules/@pnpm.e2e/install-script-example/generated-by-install.js')).toBeTruthy()
 
   await deploy.handler({

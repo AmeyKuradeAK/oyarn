@@ -100,7 +100,7 @@ test('using side effects cache', async () => {
   writeJsonFile.sync(filesIndexFile, filesIndex)
 
   rimraf('node_modules')
-  rimraf('pnpm-lock.yaml') // to avoid headless install
+  rimraf('oyarn.lock') // to avoid headless install
   const opts2 = testDefaults({
     fastUnpack: false,
     sideEffectsCacheRead: true,

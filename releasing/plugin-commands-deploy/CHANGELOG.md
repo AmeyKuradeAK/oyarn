@@ -306,7 +306,7 @@
 
 - f5940cc: `pnpm deploy` should not remove fields from the deployed package's `package.json` file [#9215](https://github.com/pnpm/pnpm/issues/9215).
 - a5e4965: Fix `pnpm deploy` creating a `package.json` without the `imports` and `license` field [#9193](https://github.com/pnpm/pnpm/issues/9193).
-- e4eeafd: Fix a bug causing entries in the `catalogs` section of the `pnpm-lock.yaml` file to be removed when `dedupe-peer-dependents=false` on a filtered install. [#9112](https://github.com/pnpm/pnpm/issues/9112)
+- e4eeafd: Fix a bug causing entries in the `catalogs` section of the `oyarn.lock` file to be removed when `dedupe-peer-dependents=false` on a filtered install. [#9112](https://github.com/pnpm/pnpm/issues/9112)
 - Updated dependencies [6a59366]
 - Updated dependencies [a5e4965]
 - Updated dependencies [d9d7607]

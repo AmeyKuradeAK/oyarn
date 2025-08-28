@@ -97,7 +97,7 @@
 
 ### Major Changes
 
-- cdeb65203: Changed the location of the global store from `~/.pnpm-store` to `<pnpm home directory>/store`
+- cdeb65203: Changed the location of the global store from `~/.oyarn-store` to `<pnpm home directory>/store`
 
   On Linux, by default it will be `~/.local/share/pnpm/store`
   On Windows: `%LOCALAPPDATA%/pnpm/store`

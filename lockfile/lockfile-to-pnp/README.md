@@ -1,6 +1,6 @@
 # @pnpm/lockfile-to-pnp
 
-> Creates a Plug'n'Play file from a pnpm-lock.yaml
+> Creates a Plug'n'Play file from a oyarn.lock
 
 [![npm version](https://img.shields.io/npm/v/@pnpm/lockfile-to-pnp.svg)](https://www.npmjs.com/package/@pnpm/lockfile-to-pnp)
 
@@ -10,6 +10,6 @@
 pnpm add -g @pnpm/lockfile-to-pnp
 ```
 
-## License 
+## License
 
 MIT

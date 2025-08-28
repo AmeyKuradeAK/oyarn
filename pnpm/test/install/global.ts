@@ -138,7 +138,7 @@ test('dangerously-allow-all-builds=true in global config', async () => {
   delete manifest.pnpm!.onlyBuiltDependencies
   project.writePackageJson(manifest)
   fs.rmSync('node_modules', { recursive: true })
-  fs.rmSync('pnpm-lock.yaml')
+  fs.rmSync('oyarn.lock')
   await execPnpm(['add', '@pnpm.e2e/postinstall-calls-pnpm@1.0.0'], { env })
   expect(fs.readdirSync(path.resolve('node_modules/@pnpm.e2e/postinstall-calls-pnpm'))).toContain('created-by-postinstall')
 })
@@ -191,7 +191,7 @@ test('dangerously-allow-all-builds=false in global config', async () => {
   delete manifest.pnpm!.onlyBuiltDependencies
   project.writePackageJson(manifest)
   fs.rmSync('node_modules', { recursive: true })
-  fs.rmSync('pnpm-lock.yaml')
+  fs.rmSync('oyarn.lock')
   await execPnpm(['add', '@pnpm.e2e/postinstall-calls-pnpm@1.0.0'], { env })
   expect(fs.readdirSync(path.resolve('node_modules/@pnpm.e2e/postinstall-calls-pnpm'))).not.toContain('created-by-postinstall')
 })

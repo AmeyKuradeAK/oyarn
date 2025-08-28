@@ -1,6 +1,6 @@
 # @pnpm/lockfile.pruner
 
-> Prune a pnpm-lock.yaml
+> Prune a oyarn.lock
 
 ## Install
 

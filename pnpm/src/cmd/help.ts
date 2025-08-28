@@ -53,7 +53,7 @@ function getHelpText (): string {
             name: 'unlink',
           },
           {
-            description: 'Generates a pnpm-lock.yaml from an npm package-lock.json (or npm-shrinkwrap.json) file',
+            description: 'Generates a oyarn.lock from an npm package-lock.json (or npm-shrinkwrap.json) file',
             name: 'import',
           },
           {

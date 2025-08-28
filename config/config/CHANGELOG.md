@@ -1149,7 +1149,7 @@
 
 ### Minor Changes
 
-- 3ebce5db7: Added support for `pnpm-lock.yaml` format v6. This new format will be the new lockfile format in pnpm v8. To use the new lockfile format, use the `use-lockfile-v6=true` setting in `.npmrc`. Or run `pnpm install --use-lockfile-v6` [#5810](https://github.com/pnpm/pnpm/pull/5810).
+- 3ebce5db7: Added support for `oyarn.lock` format v6. This new format will be the new lockfile format in pnpm v8. To use the new lockfile format, use the `use-lockfile-v6=true` setting in `.npmrc`. Or run `pnpm install --use-lockfile-v6` [#5810](https://github.com/pnpm/pnpm/pull/5810).
 
 ### Patch Changes
 
@@ -1529,7 +1529,7 @@
 
 ### Patch Changes
 
-- 406656f80: When `lockfile-include-tarball-url` is set to `true`, every entry in `pnpm-lock.yaml` will contain the full URL to the package's tarball [#5054](https://github.com/pnpm/pnpm/pull/5054).
+- 406656f80: When `lockfile-include-tarball-url` is set to `true`, every entry in `oyarn.lock` will contain the full URL to the package's tarball [#5054](https://github.com/pnpm/pnpm/pull/5054).
 
 ## 15.5.2
 

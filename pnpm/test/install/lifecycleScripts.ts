@@ -340,7 +340,7 @@ test('throw an error when strict-dep-builds is true and there are ignored script
 
   expect(fs.existsSync('node_modules/@pnpm.e2e/pre-and-postinstall-scripts-example/generated-by-preinstall.js')).toBeFalsy()
   expect(fs.existsSync('node_modules/@pnpm.e2e/pre-and-postinstall-scripts-example/generated-by-postinstall.js')).toBeFalsy()
-  expect(fs.existsSync('pnpm-lock.yaml')).toBeTruthy()
+  expect(fs.existsSync('oyarn.lock')).toBeTruthy()
 
   const manifest = loadJsonFile.sync<ProjectManifest>('package.json')
   expect(manifest.dependencies).toStrictEqual({

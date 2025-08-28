@@ -50,8 +50,8 @@
     "bin"
   ],
   "bin": {
-    "pnpm": "bin/pnpm.cjs",
-    "pnpx": "bin/pnpx.cjs"
+    "oyarn": "bin/pnpm.cjs",
+    "oyarnx": "bin/pnpx.cjs"
   },
   "directories": {
     "test": "test"

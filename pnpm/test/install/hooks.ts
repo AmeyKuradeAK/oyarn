@@ -248,7 +248,7 @@ test('readPackage hook from pnpmfile at root of workspace', async () => {
 
   process.chdir('..')
 
-  const lockfile = readYamlFile<LockfileFile>('pnpm-lock.yaml')
+  const lockfile = readYamlFile<LockfileFile>('oyarn.lock')
   expect(lockfile.snapshots!['is-positive@1.0.0'].dependencies).toStrictEqual({
     '@pnpm.e2e/dep-of-pkg-with-1-dep': '100.1.0',
   })
@@ -614,7 +614,7 @@ test('readPackage hook is used during removal inside a workspace', async () => {
   await execPnpm(['uninstall', 'is-positive', '--no-strict-peer-dependencies'])
 
   process.chdir('..')
-  const lockfile = readYamlFile<LockfileFile>('pnpm-lock.yaml')
+  const lockfile = readYamlFile<LockfileFile>('oyarn.lock')
   expect(lockfile.packages!['@pnpm.e2e/abc@1.0.0'].peerDependencies!['is-negative']).toBe('1.0.0')
 })
 

@@ -154,7 +154,7 @@
 
 ### Patch Changes
 
-- 509948d: Fix a regression (in v10.9.0) causing the `--lockfile-only` flag on `pnpm update` to produce a different `pnpm-lock.yaml` than an update without the flag.
+- 509948d: Fix a regression (in v10.9.0) causing the `--lockfile-only` flag on `pnpm update` to produce a different `oyarn.lock` than an update without the flag.
 - Updated dependencies [509948d]
   - @pnpm/store-controller-types@1003.0.2
 
@@ -587,7 +587,7 @@
 
 ### Patch Changes
 
-- d7b9ae5: Fix peer dependency resolution dead lock [#8570](https://github.com/pnpm/pnpm/issues/8570). This change might change some of the keys in the `snapshots` field inside `pnpm-lock.yaml` but it should happen very rarely.
+- d7b9ae5: Fix peer dependency resolution dead lock [#8570](https://github.com/pnpm/pnpm/issues/8570). This change might change some of the keys in the `snapshots` field inside `oyarn.lock` but it should happen very rarely.
 - Updated dependencies [83681da]
   - @pnpm/constants@9.0.0
   - @pnpm/npm-resolver@21.1.0
@@ -1533,7 +1533,7 @@
 ### Major Changes
 
 - 1d105e7fc: Save the whole tarball URL in the lockfile, if it doesn't use the standard format [#6265](https://github.com/pnpm/pnpm/pull/6265).
-- c92936158: The registry field is removed from the `resolution` object in `pnpm-lock.yaml`.
+- c92936158: The registry field is removed from the `resolution` object in `oyarn.lock`.
 - 158d8cf22: `useLockfileV6` field is deleted. Lockfile v5 cannot be written anymore, only transformed to the new format.
 - eceaa8b8b: Node.js 14 support dropped.
 
@@ -1699,7 +1699,7 @@
 ### Minor Changes
 
 - c7b05cd9a: When ignoreScripts=true is passed to the fetcher, do not build git-hosted dependencies.
-- 3ebce5db7: Added support for `pnpm-lock.yaml` format v6. This new format will be the new lockfile format in pnpm v8. To use the new lockfile format, use the `use-lockfile-v6=true` setting in `.npmrc`. Or run `pnpm install --use-lockfile-v6` [#5810](https://github.com/pnpm/pnpm/pull/5810).
+- 3ebce5db7: Added support for `oyarn.lock` format v6. This new format will be the new lockfile format in pnpm v8. To use the new lockfile format, use the `use-lockfile-v6=true` setting in `.npmrc`. Or run `pnpm install --use-lockfile-v6` [#5810](https://github.com/pnpm/pnpm/pull/5810).
 
 ### Patch Changes
 
@@ -1971,7 +1971,7 @@
 
 ### Patch Changes
 
-- 0373af22e: Always correctly update the "time" field in "pnpm-lock.yaml".
+- 0373af22e: Always correctly update the "time" field in "oyarn.lock".
 - Updated dependencies [d7fc07cc7]
   - @pnpm/npm-resolver@13.1.6
 
@@ -2111,7 +2111,7 @@
 
 ### Patch Changes
 
-- 406656f80: When `lockfile-include-tarball-url` is set to `true`, every entry in `pnpm-lock.yaml` will contain the full URL to the package's tarball [#5054](https://github.com/pnpm/pnpm/pull/5054).
+- 406656f80: When `lockfile-include-tarball-url` is set to `true`, every entry in `oyarn.lock` will contain the full URL to the package's tarball [#5054](https://github.com/pnpm/pnpm/pull/5054).
   - @pnpm/npm-resolver@13.0.6
 
 ## 28.2.0
@@ -3184,7 +3184,7 @@
 
 - ddd98dd74: The lockfile should be correctly updated when a direct dependency that has peer dependencies has a new version specifier in `package.json`.
 
-  For instance, `jest@26` has `cascade@2` in its peer dependencies. So `pnpm install` will scope Jest to some version of cascade. This is how it will look like in `pnpm-lock.yaml`:
+  For instance, `jest@26` has `cascade@2` in its peer dependencies. So `pnpm install` will scope Jest to some version of cascade. This is how it will look like in `oyarn.lock`:
 
   ```yaml
   dependencies:

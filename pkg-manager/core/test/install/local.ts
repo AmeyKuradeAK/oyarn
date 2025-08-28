@@ -374,7 +374,7 @@ test('deep local', async () => {
   process.chdir('project-1')
   await install(manifest1, testDefaults())
 
-  const lockfile = readYamlFile<LockfileFile>('pnpm-lock.yaml')
+  const lockfile = readYamlFile<LockfileFile>('oyarn.lock')
   expect(Object.keys(lockfile.packages ?? {})).toStrictEqual(['project-2@file:../project-2', 'project-3@file:../project-2/project-3'])
 })
 

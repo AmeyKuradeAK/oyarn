@@ -89,7 +89,7 @@ test('prompt the user if verifyDepsBeforeRun is set to prompt', async () => {
     type: 'confirm',
     name: 'runInstall',
     message: expect.stringContaining(
-      'Your "node_modules" directory is out of sync with the "pnpm-lock.yaml" file'
+      'Your "node_modules" directory is out of sync with the "oyarn.lock" file'
     ),
     initial: true,
   })

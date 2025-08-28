@@ -274,7 +274,7 @@ test('pnpm outdated: only current lockfile is available', async () => {
 test('pnpm outdated: only wanted lockfile is available', async () => {
   tempDir()
 
-  fs.copyFileSync(path.join(hasOutdatedDepsFixture, 'pnpm-lock.yaml'), path.resolve('pnpm-lock.yaml'))
+  fs.copyFileSync(path.join(hasOutdatedDepsFixture, 'oyarn.lock'), path.resolve('oyarn.lock'))
   fs.copyFileSync(path.join(hasOutdatedDepsFixture, 'package.json'), path.resolve('package.json'))
 
   const { output, exitCode } = await outdated.handler({
@@ -437,7 +437,7 @@ test('pnpm outdated: --compatible works with npm aliases', async () => {
 test('pnpm outdated: support --sortField option', async () => {
   tempDir()
 
-  fs.copyFileSync(path.join(hasOutdatedDepsFixture, 'pnpm-lock.yaml'), path.resolve('pnpm-lock.yaml'))
+  fs.copyFileSync(path.join(hasOutdatedDepsFixture, 'oyarn.lock'), path.resolve('oyarn.lock'))
   fs.copyFileSync(path.join(hasOutdatedDepsFixture, 'package.json'), path.resolve('package.json'))
 
   const { output, exitCode } = await outdated.handler({

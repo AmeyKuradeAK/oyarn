@@ -46,7 +46,7 @@ function verifyDlxCacheLink (cacheName: string): void {
   ).toStrictEqual([
     'node_modules',
     'package.json',
-    'pnpm-lock.yaml',
+    'oyarn.lock',
   ].sort())
   expect(
     path.dirname(fs.realpathSync(path.resolve('cache', 'dlx', cacheName, 'pkg')))

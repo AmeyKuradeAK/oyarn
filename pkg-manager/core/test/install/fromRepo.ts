@@ -188,7 +188,7 @@ test('from a github repo the has no package.json file', async () => {
   fs.rmSync(path.join(project.dir(), 'node_modules'), {
     recursive: true, force: true,
   })
-  fs.rmSync(path.join(project.dir(), 'pnpm-lock.yaml'))
+  fs.rmSync(path.join(project.dir(), 'oyarn.lock'))
   // if there is an unresolved promise, this test will hang until timeout.
   // e.g. thrown: "Exceeded timeout of 240000 ms for a test.
   await addDependenciesToPackage({}, ['pnpm/for-testing.no-package-json'], testDefaults())

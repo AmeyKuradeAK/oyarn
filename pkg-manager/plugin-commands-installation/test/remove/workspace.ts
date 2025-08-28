@@ -71,7 +71,7 @@ test('remove --filter only changes the specified dependency, when run with link-
   projects['project-2'].hasNot('is-negative')
 
   // The lockfile agrees with the above
-  const lockfile = readYamlFile<LockfileFile>('./pnpm-lock.yaml')
+  const lockfile = readYamlFile<LockfileFile>('./oyarn.lock')
 
   expect(lockfile.importers?.['project-1'].dependencies?.['is-negative']).toStrictEqual({
     specifier: '1.0.0',
@@ -151,7 +151,7 @@ test('remove from within a workspace package dir only affects the specified depe
   projects['project-2'].hasNot('is-negative')
 
   // The lockfile agrees with the above
-  const lockfile = readYamlFile<LockfileFile>('./pnpm-lock.yaml')
+  const lockfile = readYamlFile<LockfileFile>('./oyarn.lock')
 
   expect(lockfile.importers?.['project-1'].dependencies?.['is-negative']).toStrictEqual({
     specifier: '1.0.0',

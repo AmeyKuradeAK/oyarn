@@ -52,7 +52,7 @@ test('installing with hoisted node-linker and no lockfile', async () => {
   }))
 
   expect(fs.realpathSync('node_modules/ms')).toEqual(path.resolve('node_modules/ms'))
-  expect(fs.existsSync('pnpm-lock.yaml')).toBeFalsy()
+  expect(fs.existsSync('oyarn.lock')).toBeFalsy()
 })
 
 test('overwriting (is-positive@3.0.0 with is-positive@latest)', async () => {

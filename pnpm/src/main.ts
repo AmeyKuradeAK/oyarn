@@ -62,7 +62,7 @@ export async function main (inputArgv: string[]): Promise<void> {
     workspaceDir,
   } = parsedCliArgs
   if (cmd !== null && !pnpmCmds[cmd]) {
-    printError(`Unknown command '${cmd}'`, 'For help, run: pnpm help')
+    printError(`Unknown command '${cmd}'`, 'For help, run: oyarn help')
     process.exitCode = 1
     return
   }
@@ -79,7 +79,7 @@ export async function main (inputArgv: string[]): Promise<void> {
       }
       console.log(deprecationMsg)
     } else {
-      printError(formatUnknownOptionsError(unknownOptions), `For help, run: pnpm help${cmd ? ` ${cmd}` : ''}`)
+      printError(formatUnknownOptionsError(unknownOptions), `For help, run: oyarn help${cmd ? ` ${cmd}` : ''}`)
       process.exitCode = 1
       return
     }
@@ -130,7 +130,7 @@ export async function main (inputArgv: string[]): Promise<void> {
     }
   } catch (err: any) { // eslint-disable-line
     // Reporting is not initialized at this point, so just printing the error
-    const hint = err['hint'] ? err['hint'] : `For help, run: pnpm help${cmd ? ` ${cmd}` : ''}`
+    const hint = err['hint'] ? err['hint'] : `For help, run: oyarn help${cmd ? ` ${cmd}` : ''}`
     printError(err.message, hint)
     process.exitCode = 1
     return

@@ -311,7 +311,7 @@
 
 ### Patch Changes
 
-- 9247f6781: Directories inside the virtual store should not contain the ( or ) chars. This is to fix issues with storybook and the new v6 `pnpm-lock.yaml` lockfile format [#5976](https://github.com/pnpm/pnpm/issues/5976).
+- 9247f6781: Directories inside the virtual store should not contain the ( or ) chars. This is to fix issues with storybook and the new v6 `oyarn.lock` lockfile format [#5976](https://github.com/pnpm/pnpm/issues/5976).
 
 ## 1.1.1
 

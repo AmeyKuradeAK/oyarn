@@ -109,7 +109,7 @@ test('recursive update prod dependencies only', async () => {
     workspaceDir: process.cwd(),
   })
 
-  const lockfile = readYamlFile<LockfileObject>('./pnpm-lock.yaml')
+  const lockfile = readYamlFile<LockfileObject>('./oyarn.lock')
   expect(
     Object.keys(lockfile.packages ?? {})
   ).toStrictEqual(
@@ -314,7 +314,7 @@ test('recursive update --latest foo should only update projects that have foo', 
     workspaceDir: process.cwd(),
   }, ['@zkochan/async-regex-replace', '@pnpm.e2e/foo'])
 
-  const lockfile = readYamlFile<LockfileObject>('./pnpm-lock.yaml')
+  const lockfile = readYamlFile<LockfileObject>('./oyarn.lock')
 
   expect(Object.keys(lockfile.packages ?? {}).sort()).toStrictEqual([
     '@zkochan/async-regex-replace@0.2.0',

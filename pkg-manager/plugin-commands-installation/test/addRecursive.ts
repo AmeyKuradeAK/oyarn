@@ -160,7 +160,7 @@ test('recursive add --save-dev, --save-peer on workspace with single lockfile', 
     )
   }
 
-  const lockfile = readYamlFile<LockfileObject>('./pnpm-lock.yaml')
+  const lockfile = readYamlFile<LockfileObject>('./oyarn.lock')
   expect(
     lockfile.importers['project-1' as ProjectId].devDependencies
   ).toStrictEqual(

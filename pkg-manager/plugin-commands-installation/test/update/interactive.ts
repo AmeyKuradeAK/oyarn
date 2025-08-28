@@ -267,7 +267,7 @@ test('interactive update of dev dependencies only', async () => {
     workspaceDir: process.cwd(),
   })
 
-  const lockfile = readYamlFile<LockfileObject>('pnpm-lock.yaml')
+  const lockfile = readYamlFile<LockfileObject>('oyarn.lock')
 
   expect(Object.keys(lockfile.packages ?? {})).toStrictEqual([
     'is-negative@1.0.1',

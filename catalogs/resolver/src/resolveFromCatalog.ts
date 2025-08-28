@@ -90,7 +90,7 @@ export function resolveFromCatalog (catalogs: Catalogs, wantedDependency: Wanted
   //   1. It's kind of silly. It'd be better to encourage users to use the
   //      workspace protocol directly.
   //   2. Catalogs cache the resolved version of a dependency specifier in
-  //      pnpm-lock.yaml for more consistent resolution across importers. The
+  //      oyarn.lock for more consistent resolution across importers. The
   //      link: resolutions can't be shared between importers.
   const protocolOfLookup = catalogLookup.split(':')[0]
   if (protocolOfLookup === 'workspace') {

@@ -415,7 +415,7 @@
 
 ### Major Changes
 
-- 4c2450208: (Important) Tarball resolutions in `pnpm-lock.yaml` will no longer contain a `registry` field. This field has been unused for a long time. This change should not cause any issues besides backward compatible modifications to the lockfile [#7262](https://github.com/pnpm/pnpm/pull/7262).
+- 4c2450208: (Important) Tarball resolutions in `oyarn.lock` will no longer contain a `registry` field. This field has been unused for a long time. This change should not cause any issues besides backward compatible modifications to the lockfile [#7262](https://github.com/pnpm/pnpm/pull/7262).
 
 ### Patch Changes
 
@@ -517,7 +517,7 @@
 
 ### Major Changes
 
-- c92936158: The registry field is removed from the `resolution` object in `pnpm-lock.yaml`.
+- c92936158: The registry field is removed from the `resolution` object in `oyarn.lock`.
 - eceaa8b8b: Node.js 14 support dropped.
 
 ### Patch Changes

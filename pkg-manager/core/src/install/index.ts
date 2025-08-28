@@ -628,7 +628,7 @@ export async function mutateModules (
     }
 
     // Unfortunately, the private lockfile may differ from the public one.
-    // A user might run named installations on a project that has a pnpm-lock.yaml file before running a noop install
+    // A user might run named installations on a project that has a oyarn.lock file before running a noop install
     const makePartialCurrentLockfile = !installsOnly && (
       ctx.existsNonEmptyWantedLockfile && !ctx.existsCurrentLockfile ||
       !ctx.currentLockfileIsUpToDate
@@ -661,10 +661,10 @@ export async function mutateModules (
    *   1. The --frozen-lockfile flag was explicitly specified or evaluates to
    *      true based on conditions like running on CI.
    *   2. No workspace modifications have been made that would invalidate the
-   *      pnpm-lock.yaml file. In other words, the pnpm-lock.yaml file is
+   *      oyarn.lock file. In other words, the oyarn.lock file is
    *      known to be "up-to-date".
    *
-   * A frozen install is significantly faster since the pnpm-lock.yaml file
+   * A frozen install is significantly faster since the oyarn.lock file
    * can treated as immutable, skipping expensive lookups to acquire new
    * dependencies. For this reason, a frozen install should be performed even
    * if --frozen-lockfile wasn't explicitly specified. This allows users to
@@ -673,9 +673,9 @@ export async function mutateModules (
    * If a frozen install is not possible, this function will return null.
    * This indicates a standard mutable install needs to be performed.
    *
-   * Note this function may update the pnpm-lock.yaml file if the lockfile was
+   * Note this function may update the oyarn.lock file if the lockfile was
    * on a different major version, needs to be merged due to git conflicts,
-   * etc. These changes update the format of the pnpm-lock.yaml file, but do
+   * etc. These changes update the format of the oyarn.lock file, but do
    * not change recorded dependency resolutions.
    */
   async function tryFrozenInstall ({

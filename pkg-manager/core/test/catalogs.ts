@@ -790,7 +790,7 @@ test('catalog entry using npm alias can be reused', async () => {
 
 // If a catalog specifier was used in one or more package.json files and all
 // usages were removed later, we should remove the catalog snapshot from
-// pnpm-lock.yaml. This should happen even if the dependency is still defined in
+// oyarn.lock. This should happen even if the dependency is still defined in
 // a catalog under pnpm-workspace.yaml.
 //
 // Note that this behavior may not be desirable in all cases. If someone removes

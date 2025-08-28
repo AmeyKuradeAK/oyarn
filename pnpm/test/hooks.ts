@@ -40,16 +40,16 @@ test('readPackage hook in single project doesn\'t modify manifest', async () => 
   project.hasNot('is-positive')
 
   // Reset for --lockfile-only checks
-  fs.unlinkSync('pnpm-lock.yaml')
+  fs.unlinkSync('oyarn.lock')
 
   await execPnpm(['install', '--lockfile-only'])
   pkg = loadJsonFile.sync(path.resolve('package.json'))
-  expect(pkg.dependencies).toBeFalsy() // install --lockfile-only & readPackage hook work, without pnpm-lock.yaml
+  expect(pkg.dependencies).toBeFalsy() // install --lockfile-only & readPackage hook work, without oyarn.lock
 
-  // runs with pnpm-lock.yaml should not mutate local projects
+  // runs with oyarn.lock should not mutate local projects
   await execPnpm(['install', '--lockfile-only'])
   pkg = loadJsonFile.sync(path.resolve('package.json'))
-  expect(pkg.dependencies).toBeFalsy() // install --lockfile-only & readPackage hook work, with pnpm-lock.yaml
+  expect(pkg.dependencies).toBeFalsy() // install --lockfile-only & readPackage hook work, with oyarn.lock
 })
 
 test('readPackage hook in monorepo doesn\'t modify manifest', async () => {
@@ -94,16 +94,16 @@ test('readPackage hook in monorepo doesn\'t modify manifest', async () => {
   expect(pkg.dependencies).toBeFalsy() // remove & readPackage hook work
 
   // Reset for --lockfile-only checks
-  fs.unlinkSync('pnpm-lock.yaml')
+  fs.unlinkSync('oyarn.lock')
 
   await execPnpm(['install', '--lockfile-only'])
   pkg = loadJsonFile.sync(path.resolve('project-a/package.json'))
-  expect(pkg.dependencies).toBeFalsy() // install --lockfile-only & readPackage hook work, without pnpm-lock.yaml
+  expect(pkg.dependencies).toBeFalsy() // install --lockfile-only & readPackage hook work, without oyarn.lock
 
-  // runs with pnpm-lock.yaml should not mutate local projects
+  // runs with oyarn.lock should not mutate local projects
   await execPnpm(['install', '--lockfile-only'])
   pkg = loadJsonFile.sync(path.resolve('project-a/package.json'))
-  expect(pkg.dependencies).toBeFalsy() // install --lockfile-only & readPackage hook work, with pnpm-lock.yaml
+  expect(pkg.dependencies).toBeFalsy() // install --lockfile-only & readPackage hook work, with oyarn.lock
 })
 
 test('filterLog hook filters peer dependency warning', async () => {

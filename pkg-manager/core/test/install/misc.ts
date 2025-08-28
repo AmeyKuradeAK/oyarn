@@ -829,7 +829,7 @@ test('reinstalls missing packages to node_modules', async () => {
 
   expect(reporter.calledWithMatch(missingDepLog)).toBeFalsy()
 
-  rimraf('pnpm-lock.yaml')
+  rimraf('oyarn.lock')
   rimraf('node_modules/is-positive')
   rimraf(depLocation)
 
@@ -906,7 +906,7 @@ test('all the subdeps of dependencies are linked when a node_modules is partiall
     rootDir: process.cwd() as ProjectRootDir,
   }, testDefaults())
 
-  writeYamlFile(path.resolve('pnpm-lock.yaml'), {
+  writeYamlFile(path.resolve('oyarn.lock'), {
     dependencies: {
       '@pnpm.e2e/foobarqar': {
         specifier: '1.0.1',
@@ -995,7 +995,7 @@ test('subdep symlinks are updated if the lockfile has new subdep versions specif
     ]
   )
 
-  writeYamlFile(path.resolve('pnpm-lock.yaml'), {
+  writeYamlFile(path.resolve('oyarn.lock'), {
     dependencies: {
       '@pnpm.e2e/parent-of-pkg-with-1-dep': {
         specifier: '1.0.0',
@@ -1111,7 +1111,7 @@ test('memory consumption is under control on huge package with many peer depende
     testDefaults({ fastUnpack: true, lockfileOnly: true, strictPeerDependencies: false })
   )
 
-  expect(fs.existsSync('pnpm-lock.yaml')).toBeTruthy()
+  expect(fs.existsSync('oyarn.lock')).toBeTruthy()
 })
 
 // Covers https://github.com/pnpm/pnpm/issues/2339
@@ -1127,7 +1127,7 @@ test('memory consumption is under control on huge package with many peer depende
     testDefaults({ fastUnpack: true, lockfileOnly: true, strictPeerDependencies: false })
   )
 
-  expect(fs.existsSync('pnpm-lock.yaml')).toBeTruthy()
+  expect(fs.existsSync('oyarn.lock')).toBeTruthy()
 })
 
 test('installing with no symlinks with PnP', async () => {

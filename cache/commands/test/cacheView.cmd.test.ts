@@ -26,7 +26,7 @@ describe('cache view', () => {
       `--registry=${REGISTRY}`,
     ])
     rimraf('node_modules')
-    rimraf('pnpm-lock.yaml')
+    rimraf('oyarn.lock')
     await execa('node', [
       pnpmBin,
       'add',

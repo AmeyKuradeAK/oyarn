@@ -219,7 +219,7 @@ test('pnpm licenses: fails when lockfile is missing', async () => {
       long: true,
     }, ['list'])
   ).rejects.toThrowErrorMatchingInlineSnapshot(
-    '"No pnpm-lock.yaml found: Cannot check a project without a lockfile"'
+    '"No oyarn.lock found: Cannot check a project without a lockfile"'
   )
 })
 

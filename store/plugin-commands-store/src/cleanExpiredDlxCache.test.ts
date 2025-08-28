@@ -14,7 +14,7 @@ function createSampleDlxCacheLinkTarget (dirPath: string): void {
   fs.mkdirSync(path.join(dirPath, 'node_modules', '.bin'), { recursive: true })
   fs.writeFileSync(path.join(dirPath, 'node_modules', '.modules.yaml'), '')
   fs.writeFileSync(path.join(dirPath, 'package.json'), '')
-  fs.writeFileSync(path.join(dirPath, 'pnpm-lock.yaml'), '')
+  fs.writeFileSync(path.join(dirPath, 'oyarn.lock'), '')
 }
 
 function createSampleDlxCacheItem (cacheDir: string, cmd: string, now: Date, age: number): void {

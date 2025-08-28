@@ -1,7 +1,7 @@
 {
   "name": "@pnpm/lockfile.types",
   "version": "1002.0.0",
-  "description": "Types for the pnpm-lock.yaml lockfile",
+  "description": "Types for the oyarn.lock lockfile",
   "keywords": [
     "pnpm",
     "pnpm10",

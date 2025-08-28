@@ -157,7 +157,7 @@ async function testFixture (fixtureName: string) {
     resolutionMode: 'highest' as const, // TODO: this should work with the default resolution mode (TODOv8)
   }
 
-  const readProjectLockfile = () => readYamlFile<LockfileObject>(path.join(project.dir(), './pnpm-lock.yaml'))
+  const readProjectLockfile = () => readYamlFile<LockfileObject>(path.join(project.dir(), './oyarn.lock'))
 
   const originalLockfile = readProjectLockfile()
 

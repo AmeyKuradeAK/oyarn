@@ -1,4 +1,4 @@
-export const WANTED_LOCKFILE = 'pnpm-lock.yaml'
+export const WANTED_LOCKFILE = 'oyarn.lock'
 export const LOCKFILE_MAJOR_VERSION = '9'
 export const LOCKFILE_VERSION = `${LOCKFILE_MAJOR_VERSION}.0`
 

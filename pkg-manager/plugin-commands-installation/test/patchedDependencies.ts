@@ -54,7 +54,7 @@ test('bare package name as a patchedDependencies key should apply to all version
     ...DEFAULT_OPTS,
     dir: process.cwd(),
   }, ['@pnpm.e2e/depends-on-console-log@1.0.0'])
-  fs.rmSync('pnpm-lock.yaml')
+  fs.rmSync('oyarn.lock')
 
   const rootProjectManifest = addPatch('@pnpm.e2e/console-log', patchFixture, 'patches/console-log.patch')
 
@@ -106,7 +106,7 @@ test('bare package name as a patchedDependencies key should apply to all possibl
     ...DEFAULT_OPTS,
     dir: process.cwd(),
   }, ['@pnpm.e2e/depends-on-console-log@1.0.0'])
-  fs.rmSync('pnpm-lock.yaml')
+  fs.rmSync('oyarn.lock')
 
   const rootProjectManifest = addPatch('@pnpm.e2e/console-log', patchFixture, 'patches/console-log.patch')
 
@@ -154,7 +154,7 @@ test('package name with version is prioritized over bare package name as keys of
     ...DEFAULT_OPTS,
     dir: process.cwd(),
   }, ['@pnpm.e2e/depends-on-console-log@1.0.0'])
-  fs.rmSync('pnpm-lock.yaml')
+  fs.rmSync('oyarn.lock')
 
   addPatch('@pnpm.e2e/console-log', commonPatchFixture, 'patches/console-log.patch')
   const rootProjectManifest = addPatch('@pnpm.e2e/console-log@2.0.0', specializedPatchFixture, 'patches/console-log@2.0.0.patch')
@@ -211,7 +211,7 @@ test('package name with version as a patchedDependencies key does not affect oth
     ...DEFAULT_OPTS,
     dir: process.cwd(),
   }, ['@pnpm.e2e/depends-on-console-log@1.0.0'])
-  fs.rmSync('pnpm-lock.yaml')
+  fs.rmSync('oyarn.lock')
 
   addPatch('@pnpm.e2e/console-log@2.0.0', patchFixture2, 'patches/console-log@2.0.0.patch')
   const rootProjectManifest = addPatch('@pnpm.e2e/console-log@3.0.0', patchFixture3, 'patches/console-log@3.0.0.patch')
@@ -258,7 +258,7 @@ test('failure to apply patch with package name and version would cause throw an 
     ...DEFAULT_OPTS,
     dir: process.cwd(),
   }, ['@pnpm.e2e/depends-on-console-log@1.0.0'])
-  fs.rmSync('pnpm-lock.yaml')
+  fs.rmSync('oyarn.lock')
 
   const rootProjectManifest = addPatch('@pnpm.e2e/console-log@1.0.0', patchFixture, 'patches/console-log@1.0.0.patch')
 

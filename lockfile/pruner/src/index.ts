@@ -83,7 +83,7 @@ export function pruneLockfile (
       if (
         !lockfileDependencies[alias] && dep.startsWith('link:') &&
         // If the linked dependency was removed from package.json
-        // then it is removed from pnpm-lock.yaml as well
+        // then it is removed from oyarn.lock as well
         !(lockfileSpecs[alias] && !allDeps.has(alias))
       ) {
         lockfileDependencies[alias] = dep
@@ -178,7 +178,7 @@ function copyDependencySubGraph (
     if (ctx.walked.has(key)) continue
     ctx.walked.add(key)
     if (!ctx.originalPackages[depPath]) {
-      // local dependencies don't need to be resolved in pnpm-lock.yaml
+      // local dependencies don't need to be resolved in oyarn.lock
       // except local tarball dependencies
       if (depPath.startsWith('link:') || depPath.startsWith('file:') && !depPath.endsWith('.tar.gz')) continue
 

@@ -276,7 +276,7 @@
 
 ### Major Changes
 
-- c92936158: The registry field is removed from the `resolution` object in `pnpm-lock.yaml`.
+- c92936158: The registry field is removed from the `resolution` object in `oyarn.lock`.
 - eceaa8b8b: Node.js 14 support dropped.
 
 ### Patch Changes

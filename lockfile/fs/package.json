@@ -1,7 +1,7 @@
 {
   "name": "@pnpm/lockfile.fs",
   "version": "1001.1.17",
-  "description": "Read/write pnpm-lock.yaml files",
+  "description": "Read/write oyarn.lock files",
   "keywords": [
     "pnpm",
     "pnpm10",

@@ -85,7 +85,7 @@ test('deploy without existing lockfile', async () => {
   expect(fs.existsSync('deploy/node_modules/.pnpm/project-2@file+project-2/node_modules/project-2/test.js')).toBeFalsy()
   expect(fs.existsSync('deploy/node_modules/.pnpm/project-3@file+project-3/node_modules/project-3/index.js')).toBeTruthy()
   expect(fs.existsSync('deploy/node_modules/.pnpm/project-3@file+project-3/node_modules/project-3/test.js')).toBeFalsy()
-  expect(fs.existsSync('pnpm-lock.yaml')).toBeFalsy() // no changes to the lockfile are written
+  expect(fs.existsSync('oyarn.lock')).toBeFalsy() // no changes to the lockfile are written
 })
 
 test('deploy in workspace with shared-workspace-lockfile=false', async () => {
@@ -154,7 +154,7 @@ test('deploy in workspace with shared-workspace-lockfile=false', async () => {
   expect(fs.existsSync('deploy/node_modules/.pnpm/project-2@file+..+project-2/node_modules/project-2/test.js')).toBeFalsy()
   expect(fs.existsSync('deploy/node_modules/.pnpm/project-3@file+..+project-3/node_modules/project-3/index.js')).toBeTruthy()
   expect(fs.existsSync('deploy/node_modules/.pnpm/project-3@file+..+project-3/node_modules/project-3/test.js')).toBeFalsy()
-  expect(fs.existsSync('pnpm-lock.yaml')).toBeFalsy() // no changes to the lockfile are written
+  expect(fs.existsSync('oyarn.lock')).toBeFalsy() // no changes to the lockfile are written
 })
 
 test('deploy with node-linker=hoisted', async () => {
@@ -231,7 +231,7 @@ test('deploy with node-linker=hoisted', async () => {
   expect(fs.existsSync('dist/node_modules/project-2/test.js')).toBeFalsy()
   expect(fs.existsSync('dist/node_modules/project-3/index.js')).toBeTruthy()
   expect(fs.existsSync('dist/node_modules/project-3/test.js')).toBeFalsy()
-  expect(fs.existsSync('pnpm-lock.yaml')).toBeFalsy() // no changes to the lockfile are written
+  expect(fs.existsSync('oyarn.lock')).toBeFalsy() // no changes to the lockfile are written
 })
 
 // Similar to the test above making sure pnpm deploy works with
@@ -332,7 +332,7 @@ test('deploy fails when the destination directory exists and is not empty', asyn
     }, [deployPath])).rejects.toThrow(`Deploy path ${deployFullPath} is not empty`)
 
   expect(fs.existsSync(`${deployPath}/index.js`)).toBeFalsy() // no changes to the deploy path are made
-  expect(fs.existsSync('pnpm-lock.yaml')).toBeFalsy() // no changes to the lockfile are written
+  expect(fs.existsSync('oyarn.lock')).toBeFalsy() // no changes to the lockfile are written
 })
 
 test('forced deploy succeeds with a warning when destination directory exists and is not empty', async () => {
@@ -383,7 +383,7 @@ test('forced deploy succeeds with a warning when destination directory exists an
   project.has('is-positive')
   project.hasNot('is-negative')
   expect(fs.existsSync('deploy/index.js')).toBeTruthy()
-  expect(fs.existsSync('pnpm-lock.yaml')).toBeFalsy() // no changes to the lockfile are written
+  expect(fs.existsSync('oyarn.lock')).toBeFalsy() // no changes to the lockfile are written
 
   warnMock.mockRestore()
 })

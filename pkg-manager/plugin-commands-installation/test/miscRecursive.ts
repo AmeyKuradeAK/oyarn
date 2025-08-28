@@ -617,7 +617,7 @@ test('recursive install on workspace with custom lockfile-dir', async () => {
     workspaceDir: process.cwd(),
   })
 
-  const lockfile = readYamlFile<LockfileFile>(path.join(lockfileDir, 'pnpm-lock.yaml'))
+  const lockfile = readYamlFile<LockfileFile>(path.join(lockfileDir, 'oyarn.lock'))
   expect(Object.keys(lockfile.importers!)).toStrictEqual(['../project-1', '../project-2'])
 })
 
@@ -725,7 +725,7 @@ test('prefer-workspace-package', async () => {
     workspaceDir: process.cwd(),
   })
 
-  const lockfile = readYamlFile<LockfileFile>(path.resolve('pnpm-lock.yaml'))
+  const lockfile = readYamlFile<LockfileFile>(path.resolve('oyarn.lock'))
   expect(lockfile.importers?.['project-1'].dependencies?.['@pnpm.e2e/foo'].version).toBe('link:../foo')
 })
 

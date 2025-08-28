@@ -163,7 +163,7 @@
 - Dependencies specified via a URL that redirects will only be locked to the target if it is immutable, fixing a regression when installing from GitHub releases. ([#9531](https://github.com/pnpm/pnpm/issues/9531))
 - Installation should not exit with an error if `strictPeerDependencies` is `true` but all issues are ignored by `peerDependencyRules` [#9505](https://github.com/pnpm/pnpm/pull/9505).
 - Use `pnpm_config_` env variables instead of `npm_config_` [#9571](https://github.com/pnpm/pnpm/pull/9571).
-- Fix a regression (in v10.9.0) causing the `--lockfile-only` flag on `pnpm update` to produce a different `pnpm-lock.yaml` than an update without the flag.
+- Fix a regression (in v10.9.0) causing the `--lockfile-only` flag on `pnpm update` to produce a different `oyarn.lock` than an update without the flag.
 - Let `pnpm deploy` work in repos with `overrides` when `inject-workspace-packages=true` [#9283](https://github.com/pnpm/pnpm/issues/9283).
 - Fixed the problem of path loss caused by parsing URL address. Fixes a regression shipped in pnpm v10.11 via [#9502](https://github.com/pnpm/pnpm/pull/9502).
 - `pnpm -r --silent run` should not print out section [#9563](https://github.com/pnpm/pnpm/issues/9563).
@@ -445,7 +445,7 @@
 - `pnpm self-update` should not read the pnpm settings from the `package.json` file in the current working directory.
 - Fix `pnpm deploy` creating a `package.json` without the `imports` and `license` field [#9193](https://github.com/pnpm/pnpm/issues/9193).
 - `pnpm update -i` should list only packages that have newer versions [#9206](https://github.com/pnpm/pnpm/issues/9206).
-- Fix a bug causing entries in the `catalogs` section of the `pnpm-lock.yaml` file to be removed when `dedupe-peer-dependents=false` on a filtered install. [#9112](https://github.com/pnpm/pnpm/issues/9112)
+- Fix a bug causing entries in the `catalogs` section of the `oyarn.lock` file to be removed when `dedupe-peer-dependents=false` on a filtered install. [#9112](https://github.com/pnpm/pnpm/issues/9112)
 
 ## 10.5.2
 
@@ -482,7 +482,7 @@
 - `pnpm link` with no parameters should work as if `--global` is specified [#9151](https://github.com/pnpm/pnpm/pull/9151).
 - Allow scope registry CLI option without `--config.` prefix such as `--@scope:registry=https://scope.example.com/npm` [#9089](https://github.com/pnpm/pnpm/pull/9089).
 - `pnpm link <path>` should calculate relative path from the root of the workspace directory [#9132](https://github.com/pnpm/pnpm/pull/9132).
-- Fix a bug causing catalog snapshots to be removed from the `pnpm-lock.yaml` file when using `--fix-lockfile` and `--filter`. [#8639](https://github.com/pnpm/pnpm/issues/8639)
+- Fix a bug causing catalog snapshots to be removed from the `oyarn.lock` file when using `--fix-lockfile` and `--filter`. [#8639](https://github.com/pnpm/pnpm/issues/8639)
 - Fix a bug causing catalog protocol dependencies to not re-resolve on a filtered install [#8638](https://github.com/pnpm/pnpm/issues/8638).
 
 ## 10.4.1
@@ -607,7 +607,7 @@
 
   - Long paths inside `node_modules/.pnpm` are now hashed with SHA256.
   - Long peer dependency hashes in the lockfile now use SHA256 instead of MD5. (This affects very few users since these are only used for long keys.)
-  - The hash stored in the `packageExtensionsChecksum` field of `pnpm-lock.yaml` is now SHA256.
+  - The hash stored in the `packageExtensionsChecksum` field of `oyarn.lock` is now SHA256.
   - The side effects cache keys now use SHA256.
   - The pnpmfile checksum in the lockfile now uses SHA256 ([#8530](https://github.com/pnpm/pnpm/pull/8530)).
 
@@ -740,7 +740,7 @@
 
 ### Minor Changes
 
-- Fix peer dependency resolution dead lock [#8570](https://github.com/pnpm/pnpm/issues/8570). This change might change some of the keys in the `snapshots` field inside `pnpm-lock.yaml` but it should happen very rarely.
+- Fix peer dependency resolution dead lock [#8570](https://github.com/pnpm/pnpm/issues/8570). This change might change some of the keys in the `snapshots` field inside `oyarn.lock` but it should happen very rarely.
 - `pnpm outdated` command supports now a `--sort-by=name` option for sorting outdated dependencies by package name [#8523](https://github.com/pnpm/pnpm/pull/8523).
 - Added the ability for `overrides` to remove dependencies by specifying `"-"` as the field value [#8572](https://github.com/pnpm/pnpm/issues/8572). For example, to remove `lodash` from the dependencies, use this configuration in `package.json`:
 
@@ -1353,7 +1353,7 @@
 
 ### Patch Changes
 
-- (Important) Tarball resolutions in `pnpm-lock.yaml` will no longer contain a `registry` field. This field has been unused for a long time. This change should not cause any issues besides backward compatible modifications to the lockfile [#7262](https://github.com/pnpm/pnpm/pull/7262).
+- (Important) Tarball resolutions in `oyarn.lock` will no longer contain a `registry` field. This field has been unused for a long time. This change should not cause any issues besides backward compatible modifications to the lockfile [#7262](https://github.com/pnpm/pnpm/pull/7262).
 - Fix issue when trying to use `pnpm dlx` in the root of a Windows Drive [#7263](https://github.com/pnpm/pnpm/issues/7263).
 - Optional dependencies that do not have to be built will be reflinked (or hardlinked) to the store instead of copied [#7046](https://github.com/pnpm/pnpm/issues/7046).
 - If a package's tarball cannot be fetched, print the dependency chain that leads to the failed package [#7265](https://github.com/pnpm/pnpm/pull/7265).
@@ -1556,7 +1556,7 @@
 - When dealing with a local dependency that is a path to a symlink, a new symlink should be created to the original symlink, not to the actual directory location.
 - The length of the temporary file names in the content-addressable store reduced in order to prevent `ENAMETOOLONG` errors from happening [#6842](https://github.com/pnpm/pnpm/issues/6842).
 - Don't print "added" stats, when installing with `--lockfile-only`.
-- Installation of a git-hosted dependency should not fail if the `pnpm-lock.yaml` file of the installed dependency is not up-to-date [#6865](https://github.com/pnpm/pnpm/issues/6865).
+- Installation of a git-hosted dependency should not fail if the `oyarn.lock` file of the installed dependency is not up-to-date [#6865](https://github.com/pnpm/pnpm/issues/6865).
 - Don't ignore empty strings in params [#6594](https://github.com/pnpm/pnpm/issues/6594).
 - Always set `dedupe-peer-dependents` to `false`, when running installation during deploy [#6858](https://github.com/pnpm/pnpm/issues/6858).
 - When several containers use the same store simultaneously, there's a chance that multiple containers may create a temporary file at the same time. In such scenarios, pnpm could fail to rename the temporary file in one of the containers. This issue has been addressed: pnpm will no longer fail if the temporary file is absent but the destination file exists.
@@ -1797,7 +1797,7 @@
 
     > This lockfile is supported in pnpm v7 as an opt-in, so if someone in your team is still using pnpm v7, you may set `use-lockfile-v6=true` in an `.npmrc` file in the root of the project and even pnpm v7 will read and write the lockfile in the new format.
 
-  - The registry field is removed from the `resolution` object in `pnpm-lock.yaml`.
+  - The registry field is removed from the `resolution` object in `oyarn.lock`.
   - A lockfile is generated even for projects with no dependencies.
 
 - Other changes:
@@ -1981,7 +1981,7 @@
 
 ### Patch Changes
 
-- Directories inside the virtual store should not contain the ( or ) chars. This is to fix issues with storybook and the new v6 `pnpm-lock.yaml` lockfile format [#5976](https://github.com/pnpm/pnpm/issues/5976).
+- Directories inside the virtual store should not contain the ( or ) chars. This is to fix issues with storybook and the new v6 `oyarn.lock` lockfile format [#5976](https://github.com/pnpm/pnpm/issues/5976).
 - The update command should not replace dependency versions specified via dist-tags [#5996](https://github.com/pnpm/pnpm/pull/5996).
 - Fixed an issue that was causing pnpm to stuck forever during installation [#5909](https://github.com/pnpm/pnpm/issues/5909).
 
@@ -2055,7 +2055,7 @@
 
 ### Minor Changes
 
-- Added support for `pnpm-lock.yaml` format v6. This new format will be the new lockfile format in pnpm v8. To use the new lockfile format, use the `use-lockfile-v6=true` setting in `.npmrc`. Or run `pnpm install --use-lockfile-v6` [#5810](https://github.com/pnpm/pnpm/pull/5810).
+- Added support for `oyarn.lock` format v6. This new format will be the new lockfile format in pnpm v8. To use the new lockfile format, use the `use-lockfile-v6=true` setting in `.npmrc`. Or run `pnpm install --use-lockfile-v6` [#5810](https://github.com/pnpm/pnpm/pull/5810).
 
 ### Patch Changes
 
@@ -2595,7 +2595,7 @@
 
   Related issue: [#4782](https://github.com/pnpm/pnpm/issues/4782).
 
-- When `lockfile-include-tarball-url` is set to `true`, every entry in `pnpm-lock.yaml` will contain the full URL to the package's tarball [#5054](https://github.com/pnpm/pnpm/pull/5054).
+- When `lockfile-include-tarball-url` is set to `true`, every entry in `oyarn.lock` will contain the full URL to the package's tarball [#5054](https://github.com/pnpm/pnpm/pull/5054).
 
 ### Patch Changes
 
@@ -2659,7 +2659,7 @@
 
 - `pnpm install` in a workspace with patches should not fail when doing partial installation [#4954](https://github.com/pnpm/pnpm/issues/4954).
 - Never skip lockfile resolution when the lockfile is not up-to-date and `--lockfile-only` is used. Even if `frozen-lockfile` is `true` [#4951](https://github.com/pnpm/pnpm/issues/4951).
-- Never add an empty `patchedDependencies` field to `pnpm-lock.yaml`.
+- Never add an empty `patchedDependencies` field to `oyarn.lock`.
 
 ## 7.4.0
 
@@ -2941,7 +2941,7 @@
 
 - Any package with "prettier" in its name is hoisted.
 
-- Changed the location of the global store from `~/.pnpm-store` to `<pnpm home directory>/store`
+- Changed the location of the global store from `~/.oyarn-store` to `<pnpm home directory>/store`
 
   On Linux, by default it will be `~/.local/share/pnpm/store`
   On Windows: `%LOCALAPPDATA%/pnpm/store`
@@ -3777,7 +3777,7 @@
 
 ### Minor Changes
 
-- `pnpm import` can convert a `yarn.lock` to a `pnpm-lock.yaml` [#3655](https://github.com/pnpm/pnpm/pull/3655).
+- `pnpm import` can convert a `yarn.lock` to a `oyarn.lock` [#3655](https://github.com/pnpm/pnpm/pull/3655).
 - Backward-compatible change to the lockfile format. Optional dependencies will always have the `requiresBuild` field set to `true`. This change is needed to allow skipping optional dependency downloads, when the optional dependency is not compatible with the target system [#2038](https://github.com/pnpm/pnpm/issues/2038)
 
 ### Patch Changes
@@ -4521,7 +4521,7 @@
 
 ### Minor Changes
 
-- Conflicts in `pnpm-lock.yaml` are automatically fixed by `pnpm install` [#2965](https://github.com/pnpm/pnpm/pull/2965).
+- Conflicts in `oyarn.lock` are automatically fixed by `pnpm install` [#2965](https://github.com/pnpm/pnpm/pull/2965).
 
 ## 5.10.4
 

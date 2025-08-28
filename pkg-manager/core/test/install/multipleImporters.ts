@@ -797,7 +797,7 @@ test('partial installation in a monorepo does not remove dependencies of other w
     ],
   }))
 
-  writeYamlFile(path.resolve('pnpm-lock.yaml'), {
+  writeYamlFile(path.resolve('oyarn.lock'), {
     importers: {
       'project-1': {
         dependencies: {
@@ -896,7 +896,7 @@ test('partial installation in a monorepo does not remove dependencies of other w
     ],
   }))
 
-  writeYamlFile(path.resolve('pnpm-lock.yaml'), {
+  writeYamlFile(path.resolve('oyarn.lock'), {
     importers: {
       'project-1': {
         dependencies: {
